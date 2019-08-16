@@ -6,7 +6,7 @@ function addNewItem () {
   $('#js-shopping-list-form').submit(function(event) {
     event.preventDefault();
     const newItem = $('#shopping-list-entry').val();
-   $('.shopping-list').append(`
+    $('.shopping-list').append(`
       <li>
         <span class="shopping-item">${newItem}</span>
         <div class="shopping-item-controls">
@@ -35,10 +35,8 @@ function checkUncheckItem () {
 // permanently remove items from the list
 // this ALMOST works! problem is that it can't delete items that were added after the page was loaded :/
 function deleteItem () {
-  console.log('function deleteItem called successfully');
-  $('.shopping-item-delete').on('click', function(event) {
-    console.log('Delete button clicked successfully');
-    $(event.target).closest("li").remove();
+  $('.shopping-list').on('click', 'li', function(event) {
+    $(event.currentTarget).remove();
   });
 }
 
