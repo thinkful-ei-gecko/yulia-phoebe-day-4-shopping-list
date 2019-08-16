@@ -23,17 +23,14 @@ function addNewItem () {
 
 // check and uncheck items (strikethrough) on the list by clicking the "Check" button
 function checkUncheckItem () {
-  console.log('function checkUncheckItem called successfully');
-  $('.shopping-item-toggle').on('click', function(event) {
+  $('.shopping-list').on('click','.shopping-item-toggle', function(event) {
     // we don't need prevent default bc button doesn't have default behavior
-    //this "check uncheck" portion doesn't run; method must be wrong per console.log not running
-    console.log('Check button clicked successfully');
-    $(event.target).closest('.shopping-item').toggleClass('.shopping-item__checked');
+    $(event.currentTarget).closest('li').find('span.shopping-item').toggleClass('shopping-item__checked');
   });
 }
 
 // permanently remove items from the list
-// this ALMOST works! problem is that it can't delete items that were added after the page was loaded :/
+
 function deleteItem () {
   $('.shopping-list').on('click', '.shopping-item-delete', function(event) {
     $(event.currentTarget).closest('li').remove();
