@@ -35,8 +35,8 @@ function checkUncheckItem () {
 // permanently remove items from the list
 // this ALMOST works! problem is that it can't delete items that were added after the page was loaded :/
 function deleteItem () {
-  $('.shopping-list').on('click', 'li', function(event) {
-    $(event.currentTarget).remove();
+  $('.shopping-list').on('click', '.shopping-item-delete', function(event) {
+    $(event.currentTarget).closest('li').remove();
   });
 }
 
